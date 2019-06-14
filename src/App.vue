@@ -1,20 +1,34 @@
 <template>
-  <div id="app">
-    <div class="header">
-      i am header
-    </div>
+  <section id="app">
+    <Header></Header>
     <div class="tab">
-      i am tab
+       <ul>
+          <li class="tabItem">商品</li>
+          <li class="tabItem">评论</li>
+          <li class="tabItem">商家</li>
+       </ul>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
+import Header from './components/Header/Header'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Header
+  }
 }
 </script>
 
-<style>
-
+<style lang="stylus" scope>
+.tab
+  > ul
+    display: flex
+    width: 100%
+    height: 40px
+    line-height: 40px
+    > li
+      flex: 1
+      text-align: center
 </style>
