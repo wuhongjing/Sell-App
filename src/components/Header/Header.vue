@@ -13,7 +13,7 @@
             {{seller.description}} / {{seller.deliveryTime}}分钟送达
           </p>
           <p class="describe" v-if="seller.supports">
-            <i class="icon"></i><span>{{seller.supports[0].description}}</span>
+            <i class="icon" :class="classMap[seller.supports[0].type]"></i><span class="text">{{seller.supports[0].description}}</span>
           </p>
        </div>
      </div>
@@ -25,6 +25,9 @@ export default {
   name: 'Header',
   props: {
     seller: Object
+  },
+  created () {
+    this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special']
   }
 }
 </script>
@@ -68,18 +71,22 @@ export default {
       .describe
         .icon
           display: inline-block
-          width: 12px
-          height: 12px
+          width: 14px
+          height: 14px
           margin-right: 4px
-          background-size: 12px 12px
+          background-size: 14px 14px
           &.decrease
-            bg_image('decrease_1')
+            bg-image('decrease_1')
           &.discount
-            bg_image('discount_1')
+            bg-image('discount_1')
           &.guarantee
-            bg_image('guarantee_1')
+            bg-image('guarantee_1')
           &.invoice
-            bg_image('invoice_1')
+            bg-image('invoice_1')
           &.special
-            bg_image('special_1')
+            bg-image('special_1')
+        .text
+          font-size: 10px
+          margin-left: 4px
+          vertical-align: top
 </style>
